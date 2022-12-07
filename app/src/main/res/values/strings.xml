@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Pokedex</string>
+    <string name="pokedex_card_home">Pokedex</string>
+    <string name="home_title">Hey! What do are you looking for?</string>
+    <string name="pokedex_title">Pokedex</string>
+    <string name="pokemon_photo_cd">Pokemon photo</string>
+</resources>
