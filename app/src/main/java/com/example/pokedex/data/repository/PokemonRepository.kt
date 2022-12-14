@@ -36,4 +36,12 @@ class PokemonRepository(private val pokemonAPI: PokemonAPI) {
 
         return Result.Success(fetchedPokemons)
     }
+
+    suspend fun getPokemonDetails(pokemonName: String): Result<Pokemon> {
+        return when (val result = call { pokemonAPI.getPokemonInfosByName(pokemonName = pokemonName) }) {
+            is Result.Success -> Result.Success(result.data)
+            is Result.Error -> Result.Error(result.throwable)
+            else -> Result.Error(Throwable(message = "UNKNOWN ERROR"))
+        }
+    }
 }

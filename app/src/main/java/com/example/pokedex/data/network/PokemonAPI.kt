@@ -15,4 +15,9 @@ interface PokemonAPI {
     suspend fun getPokemonInfos(
         @Path("pokemon_id") pokemonId: Long
     ): Response<Pokemon>
+
+    @GET("pokemon/{pokemon_name}")
+    suspend fun getPokemonInfosByName(
+        @Path("pokemon_name") pokemonName: String
+    ): Response<Pokemon>
 }

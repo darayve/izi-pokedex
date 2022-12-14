@@ -12,7 +12,19 @@ data class Pokemon(
     val order: Long,
     val name: String,
     val types: List<Type>,
-    val sprites: Sprites
+    val sprites: Sprites,
+    val abilities: List<AbilityInfo>
+)
+
+data class AbilityInfo(
+    val ability: Ability,
+    @SerializedName("is_hidden") val isHidden: Boolean,
+    val slot: Long
+) : Serializable
+
+data class Ability(
+    val name: String,
+    val url: String
 )
 
 data class Sprites(
