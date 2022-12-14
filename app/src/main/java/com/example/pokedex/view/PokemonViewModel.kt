@@ -10,13 +10,13 @@ import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class PokemonViewModel(private val repository: PokemonRepository) : ViewModel() {
-    private val _pokemons = MutableLiveData<Result<PokemonsResponse>>()
-    val pokemons: LiveData<Result<PokemonsResponse>> = _pokemons
+    private val _fetchedPokemons = MutableLiveData<Result<List<Pokemon>>>()
+    val fetchedPokemons: LiveData<Result<List<Pokemon>>> = _fetchedPokemons
 
-    fun getPokemons() {
-        _pokemons.value = Result.Loading
+    fun fetchPokedex() {
+        _fetchedPokemons.value = Result.Loading
         viewModelScope.launch {
-            _pokemons.value = repository.getPokemons()
+            _fetchedPokemons.value = repository.getPokedex()
         }
     }
 }

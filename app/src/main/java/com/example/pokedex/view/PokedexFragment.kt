@@ -39,7 +39,7 @@ class PokedexFragment : Fragment() {
             )
         )[PokemonViewModel::class.java]
 
-        viewModel.getPokemons()
+        viewModel.fetchPokedex()
 
         setUpObservers()
 
@@ -47,13 +47,16 @@ class PokedexFragment : Fragment() {
     }
 
     private fun setUpObservers() {
-        viewModel.pokemons.observe(viewLifecycleOwner) { pokemons ->
+        viewModel.fetchedPokemons.observe(viewLifecycleOwner) { pokemons ->
             if (pokemons is Result.Success) {
-                adapter.submitList(pokemons.data.results)
+                adapter.submitList(pokemons.data)
             }
 
             if (pokemons is Result.Error) {
-                Log.i("mytag", pokemons.throwable.message ?: "Error with no message.")
+                Log.e(
+                    PokedexFragment::class.java.canonicalName,
+                    pokemons.throwable.message ?: "Error with no message."
+                )
             }
         }
     }

@@ -11,35 +11,74 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="16dp">
+        android:layout_marginVertical="8dp"
+        app:cardElevation="4dp">
 
-        <ImageView
-            android:id="@+id/ivPokemon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:contentDescription="@string/pokemon_photo_cd"
-            android:src="@drawable/ic_launcher_background"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvPokemonName"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:text="@{pokemon.name}"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/ivPokemon"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@id/ivPokemon"
-            app:layout_constraintTop_toTopOf="@id/ivPokemon"
-            tools:text="Squirtle" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/ivPokemon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="@string/pokemon_photo_cd"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvPokemonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="@{pokemon.name}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/ivPokemon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivPokemon"
+                app:layout_constraintTop_toTopOf="@id/ivPokemon"
+                tools:text="Squirtle" />
+
+            <TextView
+                android:id="@+id/tvPokemonFirstType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="@{pokemon.types[0].type.name}"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvPokemonSecondType"
+                app:layout_constraintStart_toEndOf="@id/ivPokemon"
+                app:layout_constraintTop_toBottomOf="@id/tvPokemonName"
+                tools:text="Water" />
+
+            <TextView
+                android:id="@+id/tvPokemonSecondType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="@{pokemon.types[1].type.name}"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvPokemonFirstType"
+                app:layout_constraintTop_toBottomOf="@id/tvPokemonName"
+                tools:text="Fire" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
 
 </layout>
